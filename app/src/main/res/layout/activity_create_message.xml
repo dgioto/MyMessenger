@@ -9,21 +9,26 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <EditText
-            android:id="@+id/editTextTextMultiLine"
-            android:layout_width="match_parent"
+            android:id="@+id/message"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:ems="10"
             android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:inputType="textMultiLine"
+            android:text="@string/hint" />
 
         <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
+            android:id="@+id/send"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:layout_marginTop="20dp"
+            android:onClick="onSendMessage"
+            android:text="@string/send" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
