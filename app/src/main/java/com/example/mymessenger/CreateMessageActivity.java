@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
 public class CreateMessageActivity extends AppCompatActivity {
 
@@ -15,7 +16,14 @@ public class CreateMessageActivity extends AppCompatActivity {
     }
 
     public void onSendMessage(View view){
+        //получаем сообщение из поля message
+        EditText messageView = (EditText) findViewById(R.id.message);
+        //привращаем сообщение в строку
+        String  messageText = messageView.getText().toString();
+        //в активнности this запускаем активность ReceiveMessageActiviyty
         Intent intent = new Intent(this, ReceiveMessageActivity.class);
+        //вкладывем сообщение messageText  под ключем message  в интент
+        intent.putExtra(ReceiveMessageActivity.EXTRA_MESSAGE, messageText);
         startActivity(intent);
     }
 }
