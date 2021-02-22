@@ -20,10 +20,16 @@ public class CreateMessageActivity extends AppCompatActivity {
         EditText messageView = (EditText) findViewById(R.id.message);
         //привращаем сообщение в строку
         String  messageText = messageView.getText().toString();
-        //в активнности this запускаем активность ReceiveMessageActiviyty
-        Intent intent = new Intent(this, ReceiveMessageActivity.class);
-        //вкладывем сообщение messageText  под ключем message  в интент
-        intent.putExtra(ReceiveMessageActivity.EXTRA_MESSAGE, messageText);
+//        //в активнности this запускаем активность ReceiveMessageActiviyty
+//        Intent intent = new Intent(this, ReceiveMessageActivity.class);
+//        //вкладывем сообщение messageText  под ключем message  в интент
+//        intent.putExtra(ReceiveMessageActivity.EXTRA_MESSAGE, messageText);
+
+        //отправка интента в приложение по выбору, которое могут обрабатывать сообщения
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, messageText);
+
         startActivity(intent);
     }
 }
